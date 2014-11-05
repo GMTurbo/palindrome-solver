@@ -133,4 +133,4 @@ solver.solve(word, function(answer) {
   console.log(answer.value);
 });
 
-//module.exports = PSolver;
+module.exports = PSolver;
