@@ -11,7 +11,9 @@
     "url": "https://github.com/GMTurbo/palindrome-solver.git"
   },
   "keywords": [
-    "palindromes"
+    "palindromes",
+    "combinations",
+    "words"
   ],
   "author": "Gabe Testa <gabe.testa@gmail.com> (http://gmturboism.com/)",
   "license": "MIT",
