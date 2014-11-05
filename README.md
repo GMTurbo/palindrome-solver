@@ -4,7 +4,12 @@ palindrome-solver
 get every possible palindrome within a word
 
 ```javascript
+node solver.js anna
+run time: 0ms
+[ 'ana', 'nan', 'anna', 'naan' ]
+
 node solver.js SAIPAPIAS
+run time: 346ms
 [ 'SAS',
   'SIS',
   'SPS',
