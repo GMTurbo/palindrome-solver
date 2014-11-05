@@ -17,7 +17,7 @@ solver.palindromes(word, function(answer) {
 
 // palindromes run time: 0ms
 //
-// palindromes (4)--> [ 'ana', 'nan', 'anna', 'naan' ]
+// palindromes (6)--> [ 'aa', 'nn', 'ana', 'nan', 'anna', 'naan' ]
 
 solver.combinations(word, function(answer) {
   //answer is an array
