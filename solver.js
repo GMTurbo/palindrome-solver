@@ -56,7 +56,7 @@ var PSolver = function psolver(options) {
   })();
 
   function _getAllCombinations(word) {
-  //  debugger;
+    //  debugger;
     var result = [];
     for (var i = word.length - 1; i > -1; i--) {
       result = result.concat(permutate.getPermutations(word, word.length - i));
@@ -64,16 +64,17 @@ var PSolver = function psolver(options) {
     return result;
   }
 
-  function _isPalindrome(word){
+  function _isPalindrome(word) {
     //debugger;
 
-    if(word.length < 3)
-     return false;
+    if (word.length < 3)
+      return false;
 
-    var left = 0, right = word.length-1;
+    var left = 0,
+      right = word.length - 1;
 
-    while(word[left] == word[right]){
-      if(left == right || Math.abs(left-right) == 1)
+    while (word[left] == word[right]) {
+      if (left == right || Math.abs(left - right) == 1)
         return true;
       left++;
       right--;
@@ -86,15 +87,14 @@ var PSolver = function psolver(options) {
 
     var result = [];
 
-    for(var i = 0 ; i < combos.length; i++){
+    for (var i = 0; i < combos.length; i++) {
       //check each combo
-      if(combos.length < 3)
+      if (combos.length < 3)
         continue;
-      if(_isPalindrome(combos[i]))
-        if(!result[combos[i]]){
+      if (_isPalindrome(combos[i]))
+        if (!result[combos[i]]) {
           result[combos[i]] = 1;
         }
-  //      result = result.concat(combos[i]);
     }
 
     return result;
@@ -102,35 +102,55 @@ var PSolver = function psolver(options) {
 
 
 
-  function solve(word, cb) {
+  function palindromes(word, cb) {
     //all combos
     //debugger;
-    debug&&console.time('run time');
+    debug && console.time('palindromes run time');
 
-    var combos = _getAllCombinations(word);
-    var palindromes = _getAllPalindromes(combos);
+    var palindromes = _getAllPalindromes(_getAllCombinations(word));
 
-    debug&&console.timeEnd('run time');
-
-    cb({
-      value: Object.keys(palindromes)
+    process.nextTick(function() {
+      cb({
+        type: 'palindromes',
+        result: Object.keys(palindromes)
+      });
     });
+
+    debug && console.timeEnd('palindromes run time');
 
   }
 
+  function combinations(word, cb) {
+    //all combos
+    //debugger;
+    debug && console.time('combinations run time');
+
+    process.nextTick(function() {
+      cb({
+        type: 'combinations',
+        result: _getAllCombinations(word)
+      });
+    });
+
+    debug && console.timeEnd('combinations run time');
+  }
 
   return {
-    solve: solve
+    palindromes: palindromes,
+    combinations: combinations
+
   }
 }
 
 var word = process.argv[2] || "Gabe";
 
-var solver = new PSolver({debug:true});
+var solver = new PSolver({
+  debug: true
+});
 
-solver.solve(word, function(answer) {
+solver.palindromes(word, function(answer) {
   //answer should be an array
-  console.log(answer.value);
+  console.log(answer.type, '('+ answer.result.length +')-->', answer.result);
 });
 
 module.exports = PSolver;
