@@ -71,7 +71,7 @@ var PSolver = function psolver(options) {
   function _isPalindrome(word) {
     //debugger;
 
-    if (word.length < 3)
+    if (word.length < 2)
       return false;
 
     var left = 0,
