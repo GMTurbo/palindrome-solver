@@ -53,7 +53,7 @@ var PSolver = function psolver(options) {
   function _getAllCombinations(word) {
     //  debugger;
     var result = {}, perm;
-    debugger;
+
     for (var i = word.length - 1; i > -1; i--) {
       perm = permutate.getPermutations(word, word.length - i);
       result = perm.reduce(function(seed, curr){
