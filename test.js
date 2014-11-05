@@ -1,5 +1,5 @@
 
-var PSolver = require('./solver.js');
+var PSolver = require('./solver.min.js');
 
 var word = process.argv[2] || "anna";
 

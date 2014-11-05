@@ -26,73 +26,32 @@ solver.combinations(word, function(answer) {
 
 // combinations run time: 0ms
 //
-// combinations (64)--> [ 'a',
+// combinations (18)-->
+// [ 'a',
 //   'n',
-//   'n',
-//   'a',
-//   'an',
 //   'an',
 //   'aa',
 //   'na',
 //   'nn',
-//   'na',
-//   'na',
-//   'nn',
-//   'na',
-//   'aa',
-//   'an',
-//   'an',
 //   'ann',
 //   'ana',
-//   'ann',
-//   'ana',
-//   'aan',
 //   'aan',
 //   'nan',
 //   'naa',
 //   'nna',
-//   'nna',
-//   'naa',
-//   'nan',
-//   'nan',
-//   'naa',
-//   'nna',
-//   'nna',
-//   'naa',
-//   'nan',
-//   'aan',
-//   'aan',
-//   'ana',
-//   'ann',
-//   'ana',
-//   'ann',
-//   'anna',
-//   'anan',
 //   'anna',
 //   'anan',
 //   'aann',
-//   'aann',
 //   'nana',
 //   'naan',
-//   'nnaa',
-//   'nnaa',
-//   'naan',
-//   'nana',
-//   'nana',
-//   'naan',
-//   'nnaa',
-//   'nnaa',
-//   'naan',
-//   'nana',
-//   'aann',
-//   'aann',
-//   'anan',
-//   'anna',
-//   'anan',
-//   'anna' ]
+//   'nnaa' ]
 
 
 ```
 ##Performance
 
 Finding all permutations of a word is *O(n!)* where n is the number of characters in the word.  You've been warned.
+
+##Combinations
+
+Only unique combinations are returned.  Max possible combinations is N!.
