@@ -8,11 +8,9 @@ var solver = new PSolver({
 });
 
 solver.palindromes(word, function(answer) {
-  //answer should be an array
   console.log(answer.type, '('+ answer.result.length +')-->\n', answer.result);
 });
 
 solver.combinations(word, function(answer) {
-  //answer is an array
   console.log(answer.type, '('+ answer.result.length +')-->');
 });
