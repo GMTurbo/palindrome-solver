@@ -7,6 +7,8 @@ var PSolver = function psolver(options) {
 
   options = options || {};
 
+  debug = options.debug || false;
+
   var permutate = (function() {
 
     var results = [];
@@ -71,7 +73,6 @@ var PSolver = function psolver(options) {
     var left = 0, right = word.length-1;
 
     while(word[left] == word[right]){
-      debugger;
       if(left == right || Math.abs(left-right) == 1)
         return true;
       left++;
@@ -104,13 +105,17 @@ var PSolver = function psolver(options) {
   function solve(word, cb) {
     //all combos
     //debugger;
+    debug&&console.time('run time');
+
     var combos = _getAllCombinations(word);
     var palindromes = _getAllPalindromes(combos);
+
+    debug&&console.timeEnd('run time');
 
     cb({
       value: Object.keys(palindromes)
     });
-    //process
+
   }
 
 
@@ -121,7 +126,7 @@ var PSolver = function psolver(options) {
 
 var word = process.argv[2] || "Gabe";
 
-var solver = new PSolver();
+var solver = new PSolver({debug:true});
 
 solver.solve(word, function(answer) {
   //answer should be an array
