@@ -1,8 +1,3 @@
-// var events = require("events"),
-//   util = require("util");
-
-//make a single solver
-
 var PSolver = function psolver(options) {
 
   options = options || {};
@@ -57,11 +52,20 @@ var PSolver = function psolver(options) {
 
   function _getAllCombinations(word) {
     //  debugger;
-    var result = [];
+    var result = {}, perm;
+    debugger;
     for (var i = word.length - 1; i > -1; i--) {
-      result = result.concat(permutate.getPermutations(word, word.length - i));
+      perm = permutate.getPermutations(word, word.length - i);
+      result = perm.reduce(function(seed, curr){
+          if(!seed[curr]){
+            seed[curr]=1;
+          }
+          return seed;
+      }, result);
+
     }
-    return result;
+
+    return Object.keys(result);
   }
 
   function _isPalindrome(word) {
@@ -141,16 +145,5 @@ var PSolver = function psolver(options) {
 
   }
 }
-
-var word = process.argv[2] || "Gabe";
-
-var solver = new PSolver({
-  debug: true
-});
-
-solver.palindromes(word, function(answer) {
-  //answer should be an array
-  console.log(answer.type, '('+ answer.result.length +')-->', answer.result);
-});
 
 module.exports = PSolver;
