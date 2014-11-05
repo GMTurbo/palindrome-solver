@@ -12,5 +12,5 @@ solver.palindromes(word, function(answer) {
 });
 
 solver.combinations(word, function(answer) {
-  console.log(answer.type, '('+ answer.result.length +')-->');
+  console.log(answer.type, '('+ answer.result.length +')-->\n');
 });
